@@ -1,4 +1,0 @@
-- op: replace 
-  path: /data/config.yaml
-  value: |- 
-    $(DEX_CONFIG)

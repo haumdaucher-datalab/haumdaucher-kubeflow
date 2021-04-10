@@ -2,40 +2,40 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-# # Cert-Manager
-# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
-# # Istio
-# - github.com/kubeflow/manifests/common/istio-1-9-0/istio-crds/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/istio-1-9-0/istio-namespace/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/istio-1-9-0/istio-install/base?ref=v1.3-branch
-# # OIDC Authservice
-# - github.com/kubeflow/manifests/common/oidc-authservice/base?ref=v1.3-branch
+# Cert-Manager
+- github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
+- github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
+- github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
+# Istio
+- github.com/kubeflow/manifests/common/istio-1-9-0/istio-crds/base?ref=v1.3-branch
+- github.com/kubeflow/manifests/common/istio-1-9-0/istio-namespace/base?ref=v1.3-branch
+- github.com/kubeflow/manifests/common/istio-1-9-0/istio-install/base?ref=v1.3-branch
+# OIDC Authservice
+- github.com/kubeflow/manifests/common/oidc-authservice/base?ref=v1.3-branch
 # Dex
 - github.com/kubeflow/manifests/common/dex/overlays/istio?ref=v1.3-branch
-# # Kubeflow namespace
-# - github.com/kubeflow/manifests/common/kubeflow-namespace/base?ref=v1.3-branch
-# # Kubeflow Roles
-# - github.com/kubeflow/manifests/common/kubeflow-roles/base?ref=v1.3-branch
-# # Kubeflow Istio Resources
-# - github.com/kubeflow/manifests/common/istio-1-9-0/kubeflow-istio-resources/base?ref=v1.3-branch
-# # Kubeflow Pipelines
-# - github.com/kubeflow/manifests/apps/pipeline/upstream/env/platform-agnostic-multi-user?ref=v1.3-branch
-# # Central Dashboard
-# - github.com/kubeflow/manifests/apps/centraldashboard/upstream/overlays/istio?ref=v1.3-branch
-# # Admission Webhook
-# - github.com/kubeflow/manifests/apps/admission-webhook/upstream/overlays/cert-manager?ref=v1.3-branch
-# # Notebook Controller
-# - github.com/kubeflow/manifests/apps/jupyter/jupyter-web-app/upstream/overlays/istio?ref=v1.3-branch
-# # Jupyter Web App
-# - github.com/kubeflow/manifests/apps/jupyter/notebook-controller/upstream/overlays/kubeflow?ref=v1.3-branch
-# # Profiles + KFAM
-# - github.com/kubeflow/manifests/apps/profiles/upstream/overlays/kubeflow?ref=v1.3-branch
-# # Volumes Web App
-# - github.com/kubeflow/manifests/apps/volumes-web-app/upstream/overlays/istio?ref=v1.3-branch
-# # User namespace
-# - github.com/kubeflow/manifests/common/user-namespace/base?ref=v1.3-branch
+# Kubeflow namespace
+- github.com/kubeflow/manifests/common/kubeflow-namespace/base?ref=v1.3-branch
+# Kubeflow Roles
+- github.com/kubeflow/manifests/common/kubeflow-roles/base?ref=v1.3-branch
+# Kubeflow Istio Resources
+- github.com/kubeflow/manifests/common/istio-1-9-0/kubeflow-istio-resources/base?ref=v1.3-branch
+# Kubeflow Pipelines
+- github.com/kubeflow/manifests/apps/pipeline/upstream/env/platform-agnostic-multi-user?ref=v1.3-branch
+# Central Dashboard
+- github.com/kubeflow/manifests/apps/centraldashboard/upstream/overlays/istio?ref=v1.3-branch
+# Admission Webhook
+- github.com/kubeflow/manifests/apps/admission-webhook/upstream/overlays/cert-manager?ref=v1.3-branch
+# Notebook Controller
+- github.com/kubeflow/manifests/apps/jupyter/jupyter-web-app/upstream/overlays/istio?ref=v1.3-branch
+# Jupyter Web App
+- github.com/kubeflow/manifests/apps/jupyter/notebook-controller/upstream/overlays/kubeflow?ref=v1.3-branch
+# Profiles + KFAM
+- github.com/kubeflow/manifests/apps/profiles/upstream/overlays/kubeflow?ref=v1.3-branch
+# Volumes Web App
+- github.com/kubeflow/manifests/apps/volumes-web-app/upstream/overlays/istio?ref=v1.3-branch
+# User namespace
+- github.com/kubeflow/manifests/common/user-namespace/base?ref=v1.3-branch
 
 # ingress
 - ingress.yaml
