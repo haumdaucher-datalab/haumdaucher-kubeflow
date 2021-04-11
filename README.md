@@ -46,9 +46,7 @@ Then use the following commands to install Kubeflow to minikube. Before that, fe
 ```sh
 # tag of the Kubeflow version
 minikube start --driver=hyperkit --addons=ingress,metrics-server --memory=14g --cpus=8 --disk-size='40000mb' && \
-while ! kustomize build --load_restrictor=none basic | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done && \
-sleep 600 && \
-kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+while ! kustomize build --load_restrictor=none basic | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
 ```
 
 This may take up to an hour, depending on your internet connnection. Even when connection via istio-ingressgateway is already possible, some functions might not work.
@@ -57,6 +55,12 @@ Now we can create users on the cluster with the following script. Please note, t
 
 ```sh
 ./misc/create_profiles_manifest.sh myuser@domain.com | kubectl apply -f -
+```
+
+Port forward the centraldashboard and access it.
+
+```sh
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 ```
 
 Login on [http://127.0.0.1:8080](http://127.0.0.1:8080)(or something else, see above) using *user@example.com:12341234*.
