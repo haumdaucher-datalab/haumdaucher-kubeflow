@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-# Cert-Manager
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
+# # Cert-Manager
+# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
 # Istio
 - github.com/kubeflow/manifests/common/istio-1-9-0/istio-crds/base?ref=v1.3-branch
 - github.com/kubeflow/manifests/common/istio-1-9-0/istio-namespace/base?ref=v1.3-branch
@@ -38,7 +38,7 @@ resources:
 - github.com/kubeflow/manifests/common/user-namespace/base?ref=v1.3-branch
 
 # ingress
-- ingress.yaml
+- ingress.secret.yaml
 
 # docs: https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/
 patches:
@@ -46,12 +46,8 @@ patches:
     version: v1
     kind: ConfigMap 
     name: dex
-    namespace: auth 
-  patch: |-
-    - op: replace 
-      path: /data/config.yaml
-      value: |- 
-        $(DEX_CONFIG)
+    namespace: auth
+  path: patch-dex-configmap.secret.yaml
 - target:
     group: apps 
     kind: Deployment 
@@ -125,36 +121,6 @@ patches:
       value:
         name: 'IDLE_TIME'
         value: '10'
-
-configMapGenerator:
-  - name: template-vars
-    env: template-vars.env
-  - name: dex-config
-    files:
-    - dex-config.env
-
-vars:
-  - name: FQDN
-    objref:
-      kind: ConfigMap
-      name: template-vars
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.FQDN
-  - name: FQDN_SECRETNAME
-    objref:
-      kind: ConfigMap
-      name: template-vars
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.FQDN_SECRETNAME
-  - name: DEX_CONFIG
-    objref:
-      kind: ConfigMap
-      name: dex-config
-      apiVersion: v1
-    fieldref:
-      fieldpath: 'data["dex-config.env"]'
     
 
 #path: patch-notebook-controller-deployment.yaml

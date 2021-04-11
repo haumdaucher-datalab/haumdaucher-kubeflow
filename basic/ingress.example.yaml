@@ -11,7 +11,7 @@ metadata:
   namespace: istio-system
 spec:
   rules:
-  - host: $(FQDN)
+  - host: kubeflow.mydomain.com
     http:
       paths:
       - backend:
@@ -20,7 +20,7 @@ spec:
         pathType: ImplementationSpecific
   tls:
   - hosts:
-    - $(FQDN)
-    secretName: $(FQDN_SECRETNAME)
+    - kubeflow.mydomain.com
+    secretName: kubeflow-mydomain-com
 status:
   loadBalancer: {}
