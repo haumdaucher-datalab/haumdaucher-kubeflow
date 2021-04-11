@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
 # # Cert-Manager
-# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
+- github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
 # - github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
 # - github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
 # Istio
@@ -37,6 +37,9 @@ resources:
 
 # ingress
 - ingress.secret.yaml
+
+# cluster issuer
+- cluster-issuer.yaml
 
 # docs: https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patches/
 patches:
