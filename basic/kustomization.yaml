@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-# Cert-Manager
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
+# # Cert-Manager
+# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
 # Istio
 - github.com/kubeflow/manifests/common/istio-1-9-0/istio-crds/base?ref=v1.3-branch
 - github.com/kubeflow/manifests/common/istio-1-9-0/istio-namespace/base?ref=v1.3-branch
@@ -119,16 +119,3 @@ patches:
       value:
         name: 'IDLE_TIME'
         value: '10'
-    
-
-#path: patch-notebook-controller-deployment.yaml
-
-# - target:
-#     group: rbac.authorization.k8s.io
-#     version: v1beta1
-#     kind: RoleBinding
-#     name: cert-manager-webhook:webhook-authentication-reader
-#   patch: |-
-#     - op: add
-#       path: /metadata/labels/moritz
-#       value: custom
