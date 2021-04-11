@@ -46,49 +46,49 @@
           "icon": "editor:bubble-chart"
         }
       ],
-      "externalLinks": [ [],
-        "quickLinks": [
-          {
-            "text": "Upload a pipeline",
-            "desc": "Pipelines",
-            "link": "/pipeline/"
-          },
-          {
-            "text": "View all pipeline runs",
-            "desc": "Pipelines",
-            "link": "/pipeline/#/runs"
-          },
-          {
-            "text": "Create a new Notebook server",
-            "desc": "Notebook Servers",
-            "link": "/jupyter/new?namespace=kubeflow"
-          },
-          {
-            "text": "View Katib Experiments",
-            "desc": "Katib",
-            "link": "/katib/"
-          }
-        ],
-        "documentationItems": [
-          {
-            "text": "Getting Started with Kubeflow",
-            "desc": "Get your machine-learning workflow up and running on Kubeflow",
-            "link": "https://www.kubeflow.org/docs/started/getting-started/"
-          },
-          {
-            "text": "MiniKF",
-            "desc": "A fast and easy way to deploy Kubeflow locally",
-            "link": "https://www.kubeflow.org/docs/started/getting-started-minikf/"
-          },
-          {
-            "text": "Minikube for Kubeflow",
-            "desc": "Quickly get Kubeflow running locally",
-            "link": "https://www.kubeflow.org/docs/started/getting-started-minikube/"
-          },
-          {
-            "text": "Requirements for Kubeflow",
-            "desc": "Get more detailed information about using Kubeflow and its components",
-            "link": "https://www.kubeflow.org/docs/started/requirements/"
-          }
-        ]
+      "externalLinks": [ ],
+      "quickLinks": [
+        {
+          "text": "Upload a pipeline",
+          "desc": "Pipelines",
+          "link": "/pipeline/"
+        },
+        {
+          "text": "View all pipeline runs",
+          "desc": "Pipelines",
+          "link": "/pipeline/#/runs"
+        },
+        {
+          "text": "Create a new Notebook server",
+          "desc": "Notebook Servers",
+          "link": "/jupyter/new?namespace=kubeflow"
+        },
+        {
+          "text": "View Katib Experiments",
+          "desc": "Katib",
+          "link": "/katib/"
+        }
+      ],
+      "documentationItems": [
+        {
+          "text": "Getting Started with Kubeflow",
+          "desc": "Get your machine-learning workflow up and running on Kubeflow",
+          "link": "https://www.kubeflow.org/docs/started/getting-started/"
+        },
+        {
+          "text": "MiniKF",
+          "desc": "A fast and easy way to deploy Kubeflow locally",
+          "link": "https://www.kubeflow.org/docs/started/getting-started-minikf/"
+        },
+        {
+          "text": "Minikube for Kubeflow",
+          "desc": "Quickly get Kubeflow running locally",
+          "link": "https://www.kubeflow.org/docs/started/getting-started-minikube/"
+        },
+        {
+          "text": "Requirements for Kubeflow",
+          "desc": "Get more detailed information about using Kubeflow and its components",
+          "link": "https://www.kubeflow.org/docs/started/requirements/"
+        }
+      ]
     }
