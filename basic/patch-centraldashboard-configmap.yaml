@@ -1,3 +1,4 @@
+# https://github.com/kubeflow/manifests/blob/v1.3-branch/apps/centraldashboard/upstream/base/configmap.yaml
 - op: replace 
   path: /data/links
   value: |- 

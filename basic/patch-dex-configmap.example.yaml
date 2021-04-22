@@ -1,3 +1,4 @@
+# https://github.com/kubeflow/manifests/blob/v1.3-branch/apps/jupyter/jupyter-web-app/upstream/base/configs/spawner_ui_config.yaml
 - op: replace 
   path: /data/config.yaml
   value: |- 

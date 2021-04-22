@@ -32,8 +32,8 @@ resources:
 # KFServing
 #- ../kubeflow-manifests/apps/kfserving/upstream/overlays/kubeflow
 # Katib
-# - ../kubeflow-manifests/apps/katib/upstream/installs/katib-with-kubeflow-cert-manager
-# Central Dashboard
+- ../kubeflow-manifests/apps/katib/upstream/installs/katib-with-kubeflow
+# Central Dashboard => https://github.com/kubeflow/manifests/blob/v1.3-branch/apps/centraldashboard/upstream/base/configmap.yaml
 - ../kubeflow-manifests/apps/centraldashboard/upstream/overlays/istio
 # Admission Webhook
 - ../kubeflow-manifests/apps/admission-webhook/upstream/overlays/cert-manager
