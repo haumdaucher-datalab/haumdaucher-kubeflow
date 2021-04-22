@@ -6,16 +6,6 @@ The Haumdaucher-Kubeflow distribution assembles Kubeflow with the following goal
 * Tailored to be used on one server. Therefore *resource requests* are removed, as they make no sense in this case. **The admin has to assure the server is big enough!**
 * Easy basic setup of Kubeflow.
 
-Currently there is a basic installation. Addons will be provided later:
-
-* basic
-    * istio, dex, oauth, (cert-manager,) kubeflow namespace and roles
-    * jupyter web app
-    * notebook controller
-    * profiles & KFAM
-    * Volumes web app
-    * Kubeflow pipelines
-
 ## How it works
 
 * Kustomize is used to pull external manifests from [kubeflow/manifests repository](https://github.com/kubeflow/manifests/tree/v1.3-branch), patches are then applied from within this repository.

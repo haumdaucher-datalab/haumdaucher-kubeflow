@@ -14,14 +14,25 @@ resources:
 - github.com/kubeflow/manifests/common/oidc-authservice/base?ref=v1.3-branch
 # Dex
 - github.com/kubeflow/manifests/common/dex/overlays/istio?ref=v1.3-branch
+# # KNative
+# - github.com/kubeflow/manifests/common/knative/knative-serving-crds/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/knative/knative-serving-install/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/knative/knative-eventing-crds/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/knative/knative-eventing-install/base?ref=v1.3-branch
+# - github.com/kubeflow/manifests/common/istio-1-9-0/cluster-local-gateway/base?ref=v1.3-branch
 # Kubeflow namespace
 - github.com/kubeflow/manifests/common/kubeflow-namespace/base?ref=v1.3-branch
 # Kubeflow Roles
 - github.com/kubeflow/manifests/common/kubeflow-roles/base?ref=v1.3-branch
 # Kubeflow Istio Resources
 - github.com/kubeflow/manifests/common/istio-1-9-0/kubeflow-istio-resources/base?ref=v1.3-branch
+
 # Kubeflow Pipelines
 - github.com/kubeflow/manifests/apps/pipeline/upstream/env/platform-agnostic-multi-user?ref=v1.3-branch
+# KFServing
+#- github.com/kubeflow/manifests/apps/kfserving/upstream/overlays/kubeflow?ref=v1.3-branch
+# Katib
+#- github.com/kubeflow/manifests/apps/katib/upstream/installs/katib-with-kubeflow-cert-manager?ref=v1.3-branch
 # Central Dashboard
 - github.com/kubeflow/manifests/apps/centraldashboard/upstream/overlays/istio?ref=v1.3-branch
 # Admission Webhook
@@ -34,6 +45,12 @@ resources:
 - github.com/kubeflow/manifests/apps/profiles/upstream/overlays/kubeflow?ref=v1.3-branch
 # Volumes Web App
 - github.com/kubeflow/manifests/apps/volumes-web-app/upstream/overlays/istio?ref=v1.3-branch
+# Tensorboards Web App
+- github.com/kubeflow/manifests/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow?ref=v1.3-branch
+# Tensorboard Controller
+- github.com/kubeflow/manifests/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio?ref=v1.3-branch
+# TFJob Operator
+- github.com/kubeflow/manifests/apps/tf-training/upstream/overlays/kubeflow?ref=v1.3-branch
 
 # ingress
 - ingress.secret.yaml
@@ -95,13 +112,17 @@ patches:
     name: metacontroller
     namespace: kubeflow 
   patch: |- 
-    - op: remove
-      path: /spec/template/spec/containers/0/resources/requests
-- target:
-    kind: ConfigMap 
-    name: centraldashboard-config
-    namespace: kubeflow
-  path: patch-centraldashboard-configmap.yaml
+    - op: replace
+      path: /spec/template/spec/containers/0/resources/requests/cpu
+      value: 500m
+    - op: replace
+      path: /spec/template/spec/containers/0/resources/requests/memory
+      value: 500Mi
+# - target:
+#     kind: ConfigMap 
+#     name: centraldashboard-config
+#     namespace: kubeflow
+#   path: patch-centraldashboard-configmap.yaml
 - target:
     kind: ConfigMap
     name: "jupyter-web-app-config-*"
