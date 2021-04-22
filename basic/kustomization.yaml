@@ -3,54 +3,54 @@ kind: Kustomization
 
 resources:
 # # Cert-Manager
-- github.com/kubeflow/manifests/common/cert-manager/cert-manager-kube-system-resources/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/cert-manager/cert-manager-crds/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/cert-manager/cert-manager/overlays/self-signed?ref=v1.3-branch
+- ../kubeflow-manifests/common/cert-manager/cert-manager-kube-system-resources/base
+# - ../kubeflow-manifests/common/cert-manager/cert-manager-crds/base
+# - ../kubeflow-manifests/common/cert-manager/cert-manager/overlays/self-signed
 # Istio
-- github.com/kubeflow/manifests/common/istio-1-9-0/istio-crds/base?ref=v1.3-branch
-- github.com/kubeflow/manifests/common/istio-1-9-0/istio-namespace/base?ref=v1.3-branch
-- github.com/kubeflow/manifests/common/istio-1-9-0/istio-install/base?ref=v1.3-branch
+- ../kubeflow-manifests/common/istio-1-9-0/istio-crds/base
+- ../kubeflow-manifests/common/istio-1-9-0/istio-namespace/base
+- ../kubeflow-manifests/common/istio-1-9-0/istio-install/base
 # OIDC Authservice
-- github.com/kubeflow/manifests/common/oidc-authservice/base?ref=v1.3-branch
+- ../kubeflow-manifests/common/oidc-authservice/base
 # Dex
-- github.com/kubeflow/manifests/common/dex/overlays/istio?ref=v1.3-branch
+- ../kubeflow-manifests/common/dex/overlays/istio
 # # KNative
-# - github.com/kubeflow/manifests/common/knative/knative-serving-crds/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/knative/knative-serving-install/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/knative/knative-eventing-crds/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/knative/knative-eventing-install/base?ref=v1.3-branch
-# - github.com/kubeflow/manifests/common/istio-1-9-0/cluster-local-gateway/base?ref=v1.3-branch
+# - ../kubeflow-manifests/common/knative/knative-serving-crds/base
+# - ../kubeflow-manifests/common/knative/knative-serving-install/base
+# - ../kubeflow-manifests/common/knative/knative-eventing-crds/base
+# - ../kubeflow-manifests/common/knative/knative-eventing-install/base
+# - ../kubeflow-manifests/common/istio-1-9-0/cluster-local-gateway/base
 # Kubeflow namespace
-- github.com/kubeflow/manifests/common/kubeflow-namespace/base?ref=v1.3-branch
+- ../kubeflow-manifests/common/kubeflow-namespace/base
 # Kubeflow Roles
-- github.com/kubeflow/manifests/common/kubeflow-roles/base?ref=v1.3-branch
+- ../kubeflow-manifests/common/kubeflow-roles/base
 # Kubeflow Istio Resources
-- github.com/kubeflow/manifests/common/istio-1-9-0/kubeflow-istio-resources/base?ref=v1.3-branch
+- ../kubeflow-manifests/common/istio-1-9-0/kubeflow-istio-resources/base
 
 # Kubeflow Pipelines
-- github.com/kubeflow/manifests/apps/pipeline/upstream/env/platform-agnostic-multi-user?ref=v1.3-branch
+- ../kubeflow-manifests/apps/pipeline/upstream/env/platform-agnostic-multi-user
 # KFServing
-#- github.com/kubeflow/manifests/apps/kfserving/upstream/overlays/kubeflow?ref=v1.3-branch
+#- ../kubeflow-manifests/apps/kfserving/upstream/overlays/kubeflow
 # Katib
-#- github.com/kubeflow/manifests/apps/katib/upstream/installs/katib-with-kubeflow-cert-manager?ref=v1.3-branch
+# - ../kubeflow-manifests/apps/katib/upstream/installs/katib-with-kubeflow-cert-manager
 # Central Dashboard
-- github.com/kubeflow/manifests/apps/centraldashboard/upstream/overlays/istio?ref=v1.3-branch
+- ../kubeflow-manifests/apps/centraldashboard/upstream/overlays/istio
 # Admission Webhook
-- github.com/kubeflow/manifests/apps/admission-webhook/upstream/overlays/cert-manager?ref=v1.3-branch
+- ../kubeflow-manifests/apps/admission-webhook/upstream/overlays/cert-manager
 # Notebook Controller
-- github.com/kubeflow/manifests/apps/jupyter/jupyter-web-app/upstream/overlays/istio?ref=v1.3-branch
+- ../kubeflow-manifests/apps/jupyter/jupyter-web-app/upstream/overlays/istio
 # Jupyter Web App
-- github.com/kubeflow/manifests/apps/jupyter/notebook-controller/upstream/overlays/kubeflow?ref=v1.3-branch
+- ../kubeflow-manifests/apps/jupyter/notebook-controller/upstream/overlays/kubeflow
 # Profiles + KFAM
-- github.com/kubeflow/manifests/apps/profiles/upstream/overlays/kubeflow?ref=v1.3-branch
+- ../kubeflow-manifests/apps/profiles/upstream/overlays/kubeflow
 # Volumes Web App
-- github.com/kubeflow/manifests/apps/volumes-web-app/upstream/overlays/istio?ref=v1.3-branch
+- ../kubeflow-manifests/apps/volumes-web-app/upstream/overlays/istio
 # Tensorboards Web App
-- github.com/kubeflow/manifests/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow?ref=v1.3-branch
+- ../kubeflow-manifests/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow
 # Tensorboard Controller
-- github.com/kubeflow/manifests/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio?ref=v1.3-branch
+- ../kubeflow-manifests/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio
 # TFJob Operator
-- github.com/kubeflow/manifests/apps/tf-training/upstream/overlays/kubeflow?ref=v1.3-branch
+- ../kubeflow-manifests/apps/tf-training/upstream/overlays/kubeflow
 
 # ingress
 - ingress.secret.yaml
