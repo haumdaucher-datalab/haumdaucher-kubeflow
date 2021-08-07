@@ -209,14 +209,13 @@
         # If readonly, the default value will be the only option
         value: "none"
         # The list of available tolerationGroup configs
-        options: []
-        # - groupKey: "group_1"
-        #   displayName: "Group 1: description"
-        #   tolerations:
-        #     - key: "key1"
-        #       operator: "Equal"
-        #       value: "value1"
-        #       effect: "NoSchedule"
+        options: 
+        - groupKey: "jetson"
+          displayName: "Allow scheduling on jetson"
+          tolerations:
+            - key: "nvidia.com/gpu"
+              operator: "Equal"
+              effect: "NoSchedule"
         #     - key: "key2"
         #       operator: "Equal"
         #       value: "value2"

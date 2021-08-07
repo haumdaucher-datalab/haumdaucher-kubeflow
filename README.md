@@ -12,6 +12,17 @@ The Haumdaucher-Kubeflow distribution assembles Kubeflow with the following goal
 * *xxxx.secret.yaml* files are git-crypt encrypted. There are *xxxx.example.yaml* files which may be adapted.
 * On the haumdaucher clusters cert-manager is deployed differently. The lines are therefore commented out.
 
+## deploy
+
+```sh
+git clone -b v1.3-branch --depth 1 https://github.com/kubeflow/manifests.git kubeflow-manifests
+while ! kustomize build --load_restrictor=none basic | kubectl apply -f -
+do 
+  echo "Retrying to apply resources"
+  sleep 10
+done
+```
+
 ## example installation with minikube
 
 On a macbook. Taken from the [kubeflow/manifests README](https://github.com/kubeflow/manifests/blob/v1.3-branch/README.md).

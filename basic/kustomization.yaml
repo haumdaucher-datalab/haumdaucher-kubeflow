@@ -15,11 +15,11 @@ resources:
 # Dex
 - ../kubeflow-manifests/common/dex/overlays/istio
 # # KNative
-# - ../kubeflow-manifests/common/knative/knative-serving-crds/base
-# - ../kubeflow-manifests/common/knative/knative-serving-install/base
-# - ../kubeflow-manifests/common/knative/knative-eventing-crds/base
-# - ../kubeflow-manifests/common/knative/knative-eventing-install/base
-# - ../kubeflow-manifests/common/istio-1-9-0/cluster-local-gateway/base
+- ../kubeflow-manifests/common/knative/knative-serving-crds/base
+- ../kubeflow-manifests/common/knative/knative-serving-install/base
+- ../kubeflow-manifests/common/knative/knative-eventing-crds/base
+- ../kubeflow-manifests/common/knative/knative-eventing-install/base
+- ../kubeflow-manifests/common/istio-1-9-0/cluster-local-gateway/base
 # Kubeflow namespace
 - ../kubeflow-manifests/common/kubeflow-namespace/base
 # Kubeflow Roles
@@ -30,7 +30,7 @@ resources:
 # Kubeflow Pipelines
 - ../kubeflow-manifests/apps/pipeline/upstream/env/platform-agnostic-multi-user
 # KFServing
-#- ../kubeflow-manifests/apps/kfserving/upstream/overlays/kubeflow
+- ../kubeflow-manifests/apps/kfserving/upstream/overlays/kubeflow
 # Katib
 - ../kubeflow-manifests/apps/katib/upstream/installs/katib-with-kubeflow
 # Central Dashboard => https://github.com/kubeflow/manifests/blob/v1.3-branch/apps/centraldashboard/upstream/base/configmap.yaml
@@ -143,3 +143,15 @@ patches:
       value:
         name: 'IDLE_TIME'
         value: '10'
+# set the upstream argo containers to get arm support
+- target:
+    kind: Deployment
+    name: workflow-controller
+  patch: |-
+    - op: replace 
+      path: /spec/template/spec/containers/0/args
+      value:
+        - --configmap
+        - workflow-controller-configmap
+        - --executor-image
+        - argoproj/argoexec:v2.12.9
